@@ -4,13 +4,20 @@
     padding: 0px;
     margin: 0px;
 }
-body{
+@media screen and (min-width: 320px) and (max-width: 400px){
+    *{
+        scale: 0.9;
+    }
+}
+html{
     background-image: linear-gradient(
-        43deg,
+        30deg,
     #c1121f 0px,
     #003049 66%,
     #669bbc 100%
     );
+}
+body{
     height: 100vh;
     display: flex;
     justify-content: center;
