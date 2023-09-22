@@ -4,24 +4,20 @@
     padding: 0px;
     margin: 0px;
 }
-@media screen and (min-width: 320px) and (max-width: 400px){
-    *{
-        scale: 0.9;
-    }
-}
-html{
-    background-image: linear-gradient(
-        30deg,
-    #c1121f 0px,
-    #003049 66%,
-    #669bbc 100%
-    );
+::-webkit-scrollbar{
+    display: none;
 }
 body{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: linear-gradient(
+        30deg,
+    #c1121f 0px,
+    #003049 66%,
+    #669bbc 100%
+    );
 }
 .clock{
     
@@ -31,6 +27,12 @@ body{
     border-radius: 50%;
     border: 2px solid black;
     position: relative;
+}
+@media screen and (min-width: 320px) and (max-width: 500px){
+    .clock{
+        width: 400px;
+    height: 400px;
+    }
 }
 .clock .number{
     position: absolute;
