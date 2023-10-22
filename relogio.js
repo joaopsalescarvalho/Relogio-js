@@ -1,24 +1,25 @@
-const handseconds = document.getElementById('sec');
-const handminutes = document.getElementById("min");
-const handhours = document.getElementById("hours");
+const handseconds = document.querySelector('#sec');
+const handminutes = document.querySelector("#min");
+const handhours = document.querySelector("#hours");
+
+const setRotation = (element, rotationPercentage) => {
+    element.style.setProperty("--rotation", rotationPercentage * 360);
+};
 
 const setClock = () => {
 
     const date = new Date();
-    return {
-        sec: date.getSeconds()/ 60,
-        min:  date.getMinutes()/ 60 ,
-        h:  date.getHours()/ 12,
-    };
+    
+       const sec= date.getSeconds() / 60;
+       const min= (sec + date.getMinutes()) / 60;
+       const h= (min + date.getHours()) / 12;
+
+    setRotation(handseconds, sec);
+    setRotation(handminutes, min);
+    setRotation(handhours, h);
 
 };
 
-setInterval(() => {
-    const { sec, min, h } = setClock();
-    handseconds.style.transform = `translateX(-50%) rotate(${sec * 360}deg)`;
-    handminutes.style.transform = `translateX(-50%) rotate(${min * 360}deg)`;
-    handhours.style.transform = `translateX(-50%) rotate(${h  * 360}deg )`;
+setClock();
 
-
-}, 1000);
-
+setInterval(setClock, 1000);
